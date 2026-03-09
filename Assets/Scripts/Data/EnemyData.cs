@@ -1,5 +1,5 @@
 // EnemyData.cs
-// Zweck: Definiert die Datenstruktur für Feinde im Spiel.
+// Zweck: Definiert die Daten für Feinde im Spiel.
 // Sinn: Diese Klasse speichert alle relevanten Informationen über Feinde, die im Spiel verwendet werden.
 // Kein Verhalten oder Logik, sondern nur Daten.
 

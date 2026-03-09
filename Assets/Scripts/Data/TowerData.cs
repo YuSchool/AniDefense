@@ -1,5 +1,5 @@
 // TowerData.cs
-// Zweck: Definiert die Datenstruktur für Türme im Spiel.
+// Zweck: Definiert die Daten für Türme im Spiel.
 // Sinn: Diese Klasse speichert alle relevanten Informationen über Türme, die im Spiel verwendet werden.
 // Kein Verhalten oder Logik, sondern nur Daten.
 
