@@ -1,41 +1,39 @@
+//  ResourceManager.cs
+//  Zweck: Verwaltung von Ressourcen wie Gold, Seelen, Aura und Leben. Bietet Methoden zum Hinzufügen, Ausgeben und Verlieren von Ressourcen sowie Events für HUD-Updates.
+//  Sinn: Zentralisiert die Ressourcenverwaltung, ermöglicht einfache Interaktion mit anderen Systemen (z.B. HUD, GameManager) und sorgt für eine klare Trennung von Daten und Logik.
+//  Verantwortlichkeiten: 
+
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    // 
-    //  SINGLETON
-    // 
-    public static ResourceManager Instance { get; private set; }
+    public static ResourceManager Instance { get; private set; } // Singleton-Instanz für globalen Zugriff
 
-    // 
-    //  RESSOURCEN
-    // 
-    [Header("Startwerte")]
+    #region RESSOURCEN UND STARTWERTE
+    [Header("Startwerte")] // Startwerte für Ressourcen, können im Inspector angepasst werden
     [SerializeField] private int startGold = 150;
     [SerializeField] private int startSeelen = 0;
     [SerializeField] private float startAura = 0f;
     [SerializeField] private int startLeben = 3;
-
+    
+    // Aktuelle Werte der Ressourcen, private Setter erzwingen die Verwendung von Methoden, die Events feuern
     public int Gold { get; private set; }
     public int Seelen { get; private set; }
     public float Aura { get; private set; }
     public int Leben { get; private set; }
 
-    [Header("Aura-Maximum")]
+    [Header("Aura-Maximum")] // Maximalwert für Aura, kann im Inspector angepasst werden
     [SerializeField] private float maxAura = 100f;
-    public float MaxAura => maxAura;
-
-    // 
-    //  EVENTS
-    // 
+    public float MaxAura => maxAura; // Öffentlicher Getter für maxAura, damit andere Klassen den Wert kennen, aber nicht ändern können
+    #endregion
+    #region EVENTS
     public static event System.Action<int> OnGoldGeaendert;
     public static event System.Action<int> OnSeelenGeaendert;
     public static event System.Action<float> OnAuraGeaendert;
     public static event System.Action<int> OnLebenGeaendert;
+    #endregion
 
-    //
-    //  UNITY LIFECYCLE
-    // 
+    //  Unity erfordert, dass die Singleton-Instanz in Awake gesetzt wird, damit sie vor anderen Start-Methoden verfügbar ist
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -55,9 +53,7 @@ public class ResourceManager : MonoBehaviour
         SetzeLeben(startLeben);
     }
 
-    // 
-    //  GOLD
-    // 
+    #region GOLD
     public void AddGold(int menge)
     {
         SetzeGold(Gold + menge);
@@ -74,10 +70,9 @@ public class ResourceManager : MonoBehaviour
         SetzeGold(Gold - menge);
         return true;
     }
+    #endregion
 
-    // 
-    //  SEELEN
-    // 
+    #region SEELEN
     public void AddSeelen(int menge)
     {
         SetzeSeelen(Seelen + menge);
@@ -94,10 +89,9 @@ public class ResourceManager : MonoBehaviour
         SetzeSeelen(Seelen - menge);
         return true;
     }
+    #endregion
 
-    // 
-    //  AURA
-    // 
+    #region AURA
     public void AddAura(float menge)
     {
         SetzeAura(Mathf.Min(Aura + menge, maxAura));
@@ -109,10 +103,9 @@ public class ResourceManager : MonoBehaviour
         SetzeAura(Aura - menge);
         return true;
     }
+    #endregion
 
-    // 
-    //  LEBEN
-    // 
+    #region LEBEN
     public void LoseLeben()
     {
         SetzeLeben(Leben - 1);
@@ -123,10 +116,10 @@ public class ResourceManager : MonoBehaviour
             GameManager.Instance.TriggerGameOver();
         }
     }
+    #endregion
 
-    // 
-    //  PRIVATE SETTER — feuern immer das Event
-    // 
+    #region PRIVATE SETTER — feuern immer das Event
+
     private void SetzeGold(int wert)
     {
         Gold = Mathf.Max(0, wert);
@@ -150,4 +143,5 @@ public class ResourceManager : MonoBehaviour
         Leben = Mathf.Max(0, wert);
         OnLebenGeaendert?.Invoke(Leben);
     }
+    #endregion
 }

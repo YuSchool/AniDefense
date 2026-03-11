@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //
-    //  SINGLETON
-    // 
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; } // Singleton-Instanz für globalen Zugriff 
 
-    // 
-    //  SPIELZUSTAND
-    //
+
+    #region SPIELZUSTAND
     public enum GameState
     {
         Idle,        // Spiel wartet auf Start
@@ -21,22 +17,24 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState AktuellerZustand { get; private set; } = GameState.Idle;
+    #endregion
 
+    #region LEVELINFO
     [Header("Wave Info")]
     public int AktuelleWave { get; private set; } = 0;
     public int MaxWaves = 5;
+    #endregion
 
-    // 
-    //  EVENTS
-    // 
+    #region EVENTS
+
     public static event System.Action<GameState> OnZustandGeaendert;
     public static event System.Action<int> OnWaveGestartet;
     public static event System.Action OnGameOver;
     public static event System.Action OnVictory;
 
-    // 
-    //  UNITY LIFECYCLE
-    // 
+    #endregion
+
+    #region UNITY LEBENSZYKLUS
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -47,9 +45,9 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    //
-    //  ÖFFENTLICHE METHODEN
-    // 
+    #endregion
+
+    #region ÖFFENTLICHE METHODEN 
 
     public void StarteNaechsteWave()
     {
@@ -107,11 +105,15 @@ public class GameManager : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
-    //  PRIVAT
-  
+    #endregion
+
+    #region PRIVATE METHODEN
+
     private void SetzeZustand(GameState neuerZustand)
     {
         AktuellerZustand = neuerZustand;
         OnZustandGeaendert?.Invoke(neuerZustand);
     }
+
+    #endregion
 }
