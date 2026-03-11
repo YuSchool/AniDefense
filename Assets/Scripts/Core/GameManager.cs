@@ -1,3 +1,9 @@
+//  GameManager.cs - Zentraler Manager für Spielzustände, Wellenverwaltung und globale Events
+//  Zweck: Verwaltung des Spielablaufs, einschließlich Starten von Wellen, Verwalten von Spielzuständen (z.B. Running, Paused, GameOver) und Auslösen von Events für andere Systeme (z.B. HUD, EnemyManager).
+//  Sinn: Zentralisiert die Steuerung des Spielablaufs, ermöglicht eine klare Trennung von Logik und Daten, und erleichtert die Kommunikation zwischen verschiedenen Systemen durch Events.
+//  Verantwortlichkeiten:
+//  Wird verwendet von: Alle Systeme, die den Spielablauf beeinflussen oder darauf reagieren müssen (z.B. HUD, EnemyManager, DropHandler) abonnieren die Events des GameManagers, um auf Änderungen im Spielzustand oder Wellenfortschritt zu reagieren.
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour

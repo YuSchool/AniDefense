@@ -2,6 +2,7 @@
 // Zweck: Definiert die Daten für eine Welle von Feinden, die in einem Spiel erscheinen sollen.
 // Sinn: Diese Klasse speichert alle relevanten Informationen über eine Welle.
 // Kein Verhalten oder Logik, sondern nur Daten.
+// Wird verwendet von: GameManager.cs, um die Wellen zu verwalten und zu starten, von EnemyManager.cs, um die Feinde entsprechend den Welleninformationen zu spawnen.
 
 
 using UnityEngine;
