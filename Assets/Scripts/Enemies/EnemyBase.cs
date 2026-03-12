@@ -19,7 +19,7 @@ public abstract class EnemyBase : MonoBehaviour
     #region ZUSTAND
     public float AktuelleHP { get; private set; } // Aktuelle HP des Gegners, private Setter erzwingen die Verwendung von Methoden, die Logik enthalten
     public bool IstTot { get; private set; } = false; // Grundeinstellung ist false, wird auf true gesetzt, wenn der Gegner stirbt, um weitere Aktionen zu verhindern.
-
+    public float FortschrittAufPfad { get; private set; } = 0f; // Fortschritt des Gegners auf dem Pfad, kann von Bewegungsskripten aktualisiert werden, um die Position des Gegners zu verfolgen.
     #endregion
 
     #region EVENTS
@@ -47,6 +47,11 @@ public abstract class EnemyBase : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void SetzeFortschritt(float wert)
+    {
+        FortschrittAufPfad = Mathf.Clamp01(wert);
     }
 
     #endregion

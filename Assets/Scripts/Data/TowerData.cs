@@ -23,6 +23,7 @@ public class  TowerData : ScriptableObject // Erstellen eines ScriptableObject, 
     public float schaden = 10f; // Schaden, den der Turm verursacht
     public float reichweite = 3f; // Reichweite des Turms
     public float angriffsgeschwindigkeit = 1f; // Angriffsgeschwindigkeit des Turms
+    public TargetPriority zielPrioritaet = TargetPriority.First; // Priorität bei der Zielerfassung (z.B. First, Last, Strongest, etc.)
 
     [Header("Kosten")]
     public int goldKosten = 100; // Kosten in Gold, um den Turm zu bauen

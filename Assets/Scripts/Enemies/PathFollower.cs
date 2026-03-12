@@ -60,12 +60,15 @@ public class PathFollower : MonoBehaviour
 
     private void PunktErreicht()
     {
-        aktuellerIndex++; // Erhöht den Index, um zum nächsten Wegpunkt zu wechseln
+        aktuellerIndex++;
 
-        if (aktuellerIndex >= wegpunkte.Length) // Wenn alle Wegpunkte erreicht wurden, wird die Basis erreicht
-        {
-            BaseErreicht(); // Methode aufrufen, wenn die Basis erreicht wurde
-        }
+        // Fortschritt als Anteil der abgelaufenen Wegpunkte berechnen
+        EnemyBase eb = GetComponent<EnemyBase>();
+        if (eb != null)
+            eb.SetzeFortschritt((float)aktuellerIndex / wegpunkte.Length);
+
+        if (aktuellerIndex >= wegpunkte.Length)
+            BaseErreicht();
     }
 
     private void BaseErreicht()
