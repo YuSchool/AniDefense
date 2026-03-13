@@ -101,7 +101,7 @@ public class WaveManager : MonoBehaviour
 
         GameObject gegnerObjekt = Instantiate(
             prefab,
-            spawnPoint.transform.position,
+            spawnPoint.Wegpunkte[0].position, // Gegner wird am ersten Wegpunkt des SpawnPoints gespawnt
             Quaternion.identity
         );
 

@@ -12,16 +12,9 @@ public class TestSpawner : MonoBehaviour
 
     private void Start()
     {
-        // Gegner spawnen
-        GameObject gegner = Instantiate(
-            gegnerPrefab,
-            route[0].position,
-            Quaternion.identity
-        );
-        PathFollower pf = gegner.GetComponent<PathFollower>();
-        pf.Initialisiere(route, 3f);
-
         // Tower spawnen
         Instantiate(towerPrefab, towerPosition.position, Quaternion.identity);
+        // Nächste Wave starten
+        GameManager.Instance.StarteNaechsteWave();
     }
 }

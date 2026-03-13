@@ -33,6 +33,7 @@ public enum EnemyType
     Tank, // Tank-Feind mit hoher Gesundheit
     Speed, // Schneller Feind mit geringer Gesundheit
     Armored, // Gepanzerter Feind mit mittlerer Gesundheit und hoher Verteidigung
+    Magic, // Magischer Feind mit speziellen Fähigkeiten und Flugfähigkeit
     Boss // Boss-Feind mit sehr hoher Gesundheit und speziellen Fähigkeiten
 }
 

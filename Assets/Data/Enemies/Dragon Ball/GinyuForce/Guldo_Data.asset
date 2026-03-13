@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05c9955978c5e9e4fb9a69ddd88d7084, type: 3}
-  m_Name: StandardEnemy_Data
+  m_Name: Guldo_Data
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: StandardEnemy_Data
-  seltenheit: 0
-  seltenheitsKlasse: 0
-  enemyTyp: 0
+  enemyName: Guldo
+  seltenheit: 1
+  seltenheitsKlasse: 1
+  enemyTyp: 4
   enemySprite: {fileID: 0}
   leben: 100
-  geschwindigkeit: 0.8
-  goldBelohnung: 35
-  seelenBelohnung: 10
-  auraBelohnung: 5
+  geschwindigkeit: 1
+  goldBelohnung: 10
+  seelenBelohnung: 5
+  auraBelohnung: 10
   "hatSpezialf\xE4higkeit": 0
   istBoss: 0
   istFliegend: 0

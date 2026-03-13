@@ -76,6 +76,13 @@ public class PathFollower : MonoBehaviour
         istAktiv = false;
         Debug.Log("[PathFollower] Base erreicht.");
         ResourceManager.Instance.LoseLeben();
+
+        // EnemyBase informieren damit WaveManager mitzählen kann
+        EnemyBase eb = GetComponent<EnemyBase>();
+        if (eb != null)
+            eb.ErreichteBase();
+
+
         Destroy(gameObject);
     }
     #endregion

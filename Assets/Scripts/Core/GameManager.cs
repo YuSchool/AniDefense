@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         {
             SetzeZustand(GameState.WaveOver);
             Debug.Log($"[GameManager] Wave {AktuelleWave} abgeschlossen.");
+            StarteNaechsteWave();
         }
     }
 

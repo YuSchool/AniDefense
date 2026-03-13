@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8541e0ac8c9542e4ea863f90c8dd29e0, type: 3}
+  m_Name: Wave_05
+  m_EditorClassIdentifier: Assembly-CSharp::WaveData
+  waveNummer: 5
+  istBossWelle: 0
+  waveEintraege:
+  - enemyData: {fileID: 11400000, guid: aa89611204eaf374ebc489b48dd29953, type: 2}
+    anzahl: 1
+    spawnAbstand: 2
+  - enemyData: {fileID: 11400000, guid: ef021081b2de3f44590a66d6c16b190a, type: 2}
+    anzahl: 1
+    spawnAbstand: 4
+  - enemyData: {fileID: 11400000, guid: 480f6d2c83ebfc3409d594ce390bc055, type: 2}
+    anzahl: 1
+    spawnAbstand: 6
+  - enemyData: {fileID: 11400000, guid: c774c97a060cc634cb7e09d9c8122426, type: 2}
+    anzahl: 1
+    spawnAbstand: 8
+  - enemyData: {fileID: 11400000, guid: 480f6d2c83ebfc3409d594ce390bc055, type: 2}
+    anzahl: 1
+    spawnAbstand: 8
+  - enemyData: {fileID: 11400000, guid: 1f0da0a0ec89c7d4cb3a8e702ab31dca, type: 2}
+    anzahl: 1
+    spawnAbstand: 10

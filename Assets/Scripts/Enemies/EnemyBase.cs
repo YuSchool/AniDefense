@@ -54,6 +54,13 @@ public abstract class EnemyBase : MonoBehaviour
         FortschrittAufPfad = Mathf.Clamp01(wert);
     }
 
+    public void ErreichteBase()
+    {
+        if (IstTot) return; // Wenn der Gegner bereits tot ist, wird keine weitere Aktion ausgeführt.
+        IstTot = true; // Gegner als tot markieren, um weitere Aktionen zu verhindern.
+        OnEnemyGestorben?.Invoke(this); // Event auslösen, um andere Systeme zu informieren, dass dieser Gegner gestorben ist
+    }
+
     #endregion
 
     #region VIRTUELLE UND ABSTRAKTE METHODEN
