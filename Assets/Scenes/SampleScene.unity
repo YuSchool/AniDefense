@@ -323,6 +323,7 @@ MonoBehaviour:
   - {fileID: 5787564303234883981, guid: 132b3c73a74c78546844df609ec9860c, type: 3}
   - {fileID: 2465635100652990384, guid: 218869fb4fbacba4cbbb654412028e4b, type: 3}
   - {fileID: 9023129330597447954, guid: 8d5faae005940574eb299e88ad889987, type: 3}
+  - {fileID: 1419912587233736915, guid: a53fc9f0853f33443aa6e5d4504a6feb, type: 3}
   zeitZwischenWaves: 5.04
 --- !u!1 &519420028
 GameObject:

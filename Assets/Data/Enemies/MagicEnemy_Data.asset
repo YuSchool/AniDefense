@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c9955978c5e9e4fb9a69ddd88d7084, type: 3}
   m_Name: MagicEnemy_Data
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  enemyName: Unbekannt
+  enemyName: El Magiko
   seltenheit: 0
   seltenheitsKlasse: 0
   enemyTyp: 4

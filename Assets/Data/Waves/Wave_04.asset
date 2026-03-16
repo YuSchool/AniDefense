@@ -24,10 +24,10 @@ MonoBehaviour:
   - enemyData: {fileID: 11400000, guid: fbe943d26a34e5040b3a5b4fd093d692, type: 2}
     anzahl: 5
     spawnAbstand: 1.5
-  - enemyData: {fileID: 11400000, guid: 480f6d2c83ebfc3409d594ce390bc055, type: 2}
+  - enemyData: {fileID: 11400000, guid: dcab9f5479f0879499ac670571b695b4, type: 2}
     anzahl: 1
     spawnAbstand: 7
-  - enemyData: {fileID: 11400000, guid: c774c97a060cc634cb7e09d9c8122426, type: 2}
+  - enemyData: {fileID: 11400000, guid: dcab9f5479f0879499ac670571b695b4, type: 2}
     anzahl: 1
     spawnAbstand: 7
   - enemyData: {fileID: 11400000, guid: ea2da3f64ccf1f2469e2012b4be980ca, type: 2}

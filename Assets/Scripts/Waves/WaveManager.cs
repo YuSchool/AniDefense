@@ -72,8 +72,15 @@ public class WaveManager : MonoBehaviour
     private IEnumerator StarteWave(WaveData waveData)
     {
         waveAktiv = true;
-        verbleibendeGegner = 0;
 
+        // Erst alle Gegner zählen
+        verbleibendeGegner = 0;
+        foreach (WaveEntry eintrag in waveData.waveEintraege)
+        {
+            verbleibendeGegner += eintrag.anzahl;
+        }
+
+        // Dann spawnen (so dass die Anzeige der verbleibenden Gegner von Anfang an korrekt ist)
         SpawnPoint[] alleSpawnPoints = FindObjectsOfType<SpawnPoint>();
 
         foreach (WaveEntry eintrag in waveData.waveEintraege)
@@ -82,7 +89,6 @@ public class WaveManager : MonoBehaviour
             {
                 SpawnPoint spawnPoint = alleSpawnPoints[Random.Range(0, alleSpawnPoints.Length)];
                 SpawneGegner(eintrag, spawnPoint);
-                verbleibendeGegner++;
 
                 yield return new WaitForSeconds(eintrag.spawnAbstand);
             }

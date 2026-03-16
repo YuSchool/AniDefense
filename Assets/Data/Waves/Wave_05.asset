@@ -15,21 +15,21 @@ MonoBehaviour:
   waveNummer: 5
   istBossWelle: 0
   waveEintraege:
-  - enemyData: {fileID: 11400000, guid: aa89611204eaf374ebc489b48dd29953, type: 2}
+  - enemyData: {fileID: 11400000, guid: ea2da3f64ccf1f2469e2012b4be980ca, type: 2}
     anzahl: 1
     spawnAbstand: 2
-  - enemyData: {fileID: 11400000, guid: ef021081b2de3f44590a66d6c16b190a, type: 2}
+  - enemyData: {fileID: 11400000, guid: ea2da3f64ccf1f2469e2012b4be980ca, type: 2}
     anzahl: 1
     spawnAbstand: 4
-  - enemyData: {fileID: 11400000, guid: 480f6d2c83ebfc3409d594ce390bc055, type: 2}
+  - enemyData: {fileID: 11400000, guid: fbe943d26a34e5040b3a5b4fd093d692, type: 2}
     anzahl: 1
     spawnAbstand: 6
-  - enemyData: {fileID: 11400000, guid: c774c97a060cc634cb7e09d9c8122426, type: 2}
+  - enemyData: {fileID: 11400000, guid: fbe943d26a34e5040b3a5b4fd093d692, type: 2}
     anzahl: 1
     spawnAbstand: 8
-  - enemyData: {fileID: 11400000, guid: 480f6d2c83ebfc3409d594ce390bc055, type: 2}
+  - enemyData: {fileID: 11400000, guid: bc20f30ef965cfb49a3c6f7ce07d16f4, type: 2}
     anzahl: 1
     spawnAbstand: 8
-  - enemyData: {fileID: 11400000, guid: 1f0da0a0ec89c7d4cb3a8e702ab31dca, type: 2}
+  - enemyData: {fileID: 11400000, guid: dcab9f5479f0879499ac670571b695b4, type: 2}
     anzahl: 1
     spawnAbstand: 10

@@ -22,6 +22,6 @@ MonoBehaviour:
   schaden: 20
   reichweite: 10
   angriffsgeschwindigkeit: 1.3
-  zielPrioritaet: 3
+  zielPrioritaet: 0
   goldKosten: 100
   seelenKosten: 50

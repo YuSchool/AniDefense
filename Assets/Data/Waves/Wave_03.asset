@@ -21,12 +21,12 @@ MonoBehaviour:
   - enemyData: {fileID: 11400000, guid: fbe943d26a34e5040b3a5b4fd093d692, type: 2}
     anzahl: 20
     spawnAbstand: 1.9
-  - enemyData: {fileID: 11400000, guid: aa89611204eaf374ebc489b48dd29953, type: 2}
+  - enemyData: {fileID: 11400000, guid: bc20f30ef965cfb49a3c6f7ce07d16f4, type: 2}
     anzahl: 1
     spawnAbstand: 1
   - enemyData: {fileID: 11400000, guid: 118fff6ff02a361478bc5d80052fb553, type: 2}
     anzahl: 5
     spawnAbstand: 1.7
-  - enemyData: {fileID: 11400000, guid: ef021081b2de3f44590a66d6c16b190a, type: 2}
+  - enemyData: {fileID: 11400000, guid: dcab9f5479f0879499ac670571b695b4, type: 2}
     anzahl: 1
     spawnAbstand: 4
