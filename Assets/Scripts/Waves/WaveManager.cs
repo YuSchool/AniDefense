@@ -83,15 +83,20 @@ public class WaveManager : MonoBehaviour
         // Dann spawnen (so dass die Anzeige der verbleibenden Gegner von Anfang an korrekt ist)
         SpawnPoint[] alleSpawnPoints = FindObjectsOfType<SpawnPoint>();
 
+        // Jede WaveEntry in eine eigene Coroutine packen, damit sie parallel spawnen können
         foreach (WaveEntry eintrag in waveData.waveEintraege)
-        {
-            for (int i = 0; i < eintrag.anzahl; i++)
-            {
-                SpawnPoint spawnPoint = alleSpawnPoints[Random.Range(0, alleSpawnPoints.Length)];
-                SpawneGegner(eintrag, spawnPoint);
+            StartCoroutine(SpawneEintrag(eintrag, alleSpawnPoints));
 
-                yield return new WaitForSeconds(eintrag.spawnAbstand);
-            }
+        yield break; // Coroutine sofort beenden — die Sub-Coroutines laufen weiter
+    }
+
+    private IEnumerator SpawneEintrag(WaveEntry eintrag, SpawnPoint[] alleSpawnPoints)
+    {
+        for (int i = 0; i < eintrag.anzahl; i++)
+        {
+            SpawnPoint spawnPoint = alleSpawnPoints[Random.Range(0, alleSpawnPoints.Length)];
+            SpawneGegner(eintrag, spawnPoint);
+            yield return new WaitForSeconds(eintrag.spawnAbstand);
         }
     }
 
