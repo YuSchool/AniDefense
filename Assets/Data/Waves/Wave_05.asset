@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave_05
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   waveNummer: 5
-  istBossWelle: 0
+  istBossWelle: 1
   waveEintraege:
   - enemyData: {fileID: 11400000, guid: ea2da3f64ccf1f2469e2012b4be980ca, type: 2}
     anzahl: 1

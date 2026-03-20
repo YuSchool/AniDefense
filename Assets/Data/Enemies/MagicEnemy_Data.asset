@@ -16,7 +16,7 @@ MonoBehaviour:
   seltenheit: 0
   seltenheitsKlasse: 0
   enemyTyp: 4
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -1707755975674792047, guid: e26a27c2a88900b4e81387ca44dfab6f, type: 3}
   leben: 100
   geschwindigkeit: 1
   goldBelohnung: 13
