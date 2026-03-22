@@ -41,7 +41,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (IstTot) return; // Wenn der Gegner bereits tot ist, wird kein weiterer Schaden mehr verarbeitet.
 
         AktuelleHP -= schaden; // Schaden von den aktuellen HP abziehen
-        Debug.Log($"[{data.enemyName}] {schaden} Schaden erhalten. HP: {AktuelleHP}"); // Debug-Ausgabe
+        //Debug.Log($"[{data.enemyName}] {schaden} Schaden erhalten. HP: {AktuelleHP}"); // Debug-Ausgabe
 
         if (AktuelleHP <= 0) // Wenn die HP auf 0 oder darunter fallen, stirbt der Gegner
         {
@@ -69,7 +69,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (IstTot) return;
         IstTot = true;
 
-        Debug.Log($"[{data.enemyName}] gestorben.");
+        //Debug.Log($"[{data.enemyName}] gestorben.");
         OnEnemyGestorben?.Invoke(this); // Event auslösen, um andere Systeme zu informieren, dass dieser Gegner gestorben ist
         Destroy(gameObject);
     }

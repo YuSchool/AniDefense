@@ -10,11 +10,16 @@ public class TestSpawner : MonoBehaviour
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private Transform towerPosition;
 
+    [Header("Platzierung")]
+    [SerializeField] private TowerData testTowerData;
+    [SerializeField] private GameObject testTowerPrefab;
+
     private void Start()
     {
-        // Tower spawnen
-        Instantiate(towerPrefab, towerPosition.position, Quaternion.identity);
         // Nächste Wave starten
         GameManager.Instance.StarteNaechsteWave();
+
+        // Tower für Platzierung vorauswählen
+        TowerPlacer.Instance.WaehleTower(testTowerData, testTowerPrefab);
     }
 }

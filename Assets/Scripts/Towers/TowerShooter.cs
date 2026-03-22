@@ -16,7 +16,7 @@ public class TowerShooter : MonoBehaviour
         if (ziel.IstTot) return; // Überprüfen, ob das Ziel bereits tot ist, um unnötige Aktionen zu vermeiden
 
         ziel.TakeDamage(schaden);
-        Debug.Log($"[TowerShooter] {schaden} Schaden an {ziel.Data.enemyName}.");
+        //Debug.Log($"[TowerShooter] {schaden} Schaden an {ziel.Data.enemyName}.");
     }
 
     #endregion

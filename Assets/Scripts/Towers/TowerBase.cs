@@ -17,7 +17,7 @@ public abstract class TowerBase : MonoBehaviour
     public void SetzeData(TowerData neueData)
     {
         data = neueData;
-        Debug.Log($"[TowerBase] Data getauscht → {data.charakterName} Stufe {data.stufe}");
+        //Debug.Log($"[TowerBase] Data getauscht → {data.charakterName} Stufe {data.stufe}");
     }
 
     #endregion

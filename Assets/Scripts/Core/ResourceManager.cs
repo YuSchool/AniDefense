@@ -70,6 +70,11 @@ public class ResourceManager : MonoBehaviour
         SetzeGold(Gold - menge);
         return true;
     }
+
+    public bool KannGoldAusgeben(int betrag)
+    {
+        return Gold >= betrag;
+    }
     #endregion
 
     #region SEELEN
