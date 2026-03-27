@@ -26,7 +26,7 @@ public class DropHandler : MonoBehaviour
     {
         // Überprüfen, ob der gestorbene Gegner dieses GameObject ist, um sicherzustellen, dass die Belohnungen nur für den richtigen Gegner vergeben werden.
         // Wenn der gestorbene Gegner dieses GameObject ist, wird die Methode verlassen, da wir keine Belohnungen vergeben möchten.
-        if (gegner.gameObject == this.gameObject) return; 
+        if (gegner.gameObject != this.gameObject) return; 
 
         EnemyData data = gegner.Data; // Zugriff auf die EnemyData des gestorbenen Gegners, um die Belohnungen zu erhalten.
         ResourceManager.Instance.AddGold(data.goldBelohnung); // Vergeben der Goldbelohnung an den Spieler, indem die AddGold-Methode des ResourceManager aufgerufen wird.
