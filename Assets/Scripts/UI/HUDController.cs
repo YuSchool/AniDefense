@@ -1,6 +1,8 @@
 // HUDController.cs
 // Zweck: Steuert die Anzeige des HUD (Head-Up Display) im Spiel, einschließlich der Lebenspunkte, Ressourcen und anderer wichtiger Informationen für den Spieler.
 // Sinn: Das HUD ist ein wichtiger Bestandteil der Benutzeroberfläche, da es dem Spieler wichtige Informationen über den Spielstatus liefert. Der HUDController ist verantwortlich für die Aktualisierung und Verwaltung dieser Informationen, um sicherzustellen, dass der Spieler immer über den aktuellen Zustand des Spiels informiert ist.
+// Wird verwendet von: RessourceManager, GameManager
+
 
 using UnityEngine;
 using TMPro;
