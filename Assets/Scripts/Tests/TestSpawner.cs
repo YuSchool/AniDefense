@@ -18,8 +18,5 @@ public class TestSpawner : MonoBehaviour
     {
         // Nächste Wave starten
         GameManager.Instance.StarteNaechsteWave();
-
-        // Tower für Platzierung vorauswählen
-        TowerPlacer.Instance.WaehleTower(testTowerData, testTowerPrefab);
     }
 }

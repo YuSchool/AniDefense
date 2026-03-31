@@ -61,7 +61,7 @@ public class TowerSelectionUI : MonoBehaviour
             karteObj.transform.Find("Tower_Kosten").GetComponent<TextMeshProUGUI>().text
                 = $"{data.goldKosten} Gold - {data.seelenKosten} Seelen";
 
-            karteObj.transform.Find("Tower_Seltenheit").GetComponent<TextMeshProUGUI>().text
+            karteObj.transform.Find("Tower_Seltenheitsklasse").GetComponent<TextMeshProUGUI>().text
                 = data.seltenheitsKlasse.ToString();
 
             karteObj.transform.Find("Tower_Badge").GetComponent<TextMeshProUGUI>().text
