@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public class TowerPlacer : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class TowerPlacer : MonoBehaviour
     {
         if (ausgewaehlterTower == null) return;
         if (!Input.GetMouseButtonDown(0)) return;
+
+        // Prüfen ob der Klick auf einem UI-Element war
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         Vector3 weltPosition = hauptKamera.ScreenToWorldPoint(Input.mousePosition);
         weltPosition.z = 0f;

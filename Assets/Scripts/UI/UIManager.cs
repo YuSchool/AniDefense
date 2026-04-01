@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
         panel_Rechts.SetActive(false);
         panel_GameOver.SetActive(true);
         Time.timeScale = 0f;
+        TowerPlacer.Instance.AuswahlAufheben();
     }
 
     private void ZeigeVictory()
@@ -83,6 +84,7 @@ public class UIManager : MonoBehaviour
         panel_Rechts.SetActive(false);
         panel_Victory.SetActive(true);
         Time.timeScale = 0f;
+        TowerPlacer.Instance.AuswahlAufheben();
     }
 
     #endregion

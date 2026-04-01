@@ -60,6 +60,12 @@ public class GameManager : MonoBehaviour
         if (AktuellerZustand == GameState.GameOver ||
             AktuellerZustand == GameState.Victory) return;
 
+        if (AktuellerZustand == GameState.Running)
+        {
+            Debug.LogWarning("[GameManager] Wave läuft bereits. Bitte warten oder pausieren.");
+            return;
+        }
+
         AktuelleWave++;
         SetzeZustand(GameState.Running);
         OnWaveGestartet?.Invoke(AktuelleWave);
