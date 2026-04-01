@@ -132,6 +132,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ZumMenue()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("00_TitleScreen");
+    }
+
     #endregion
 
 }

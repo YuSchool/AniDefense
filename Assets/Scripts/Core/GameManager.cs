@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         {
             SetzeZustand(GameState.WaveOver);
             Debug.Log($"[GameManager] Wave {AktuelleWave} abgeschlossen.");
-            StarteNaechsteWave();
+            // StarteNaechsteWave() wurde entfernt - Spieler startet manuell
         }
     }
 

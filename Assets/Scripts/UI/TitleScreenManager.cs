@@ -11,6 +11,39 @@ using UnityEngine.SceneManagement;
 public class TitleScreenManager : MonoBehaviour
 {
     [SerializeField] private string spielSzeneName;
+    [SerializeField] private GameObject panel_Options;
+
+    [Header("Auflösungen")]
+    [SerializeField] private TMPro.TextMeshProUGUI text_Aufloesung;
+
+    private int[] breiten = { 1280, 1920, 2560, 3440 };
+    private int[] hoehen = { 720, 1080, 1440, 1440 };
+    private string[] namen = { "1280x720", "1920x1080", "2560x1440", "3440x1440" };
+    private int aktuellerIndex = 1;
+
+    private void Start()
+    {
+        AktualisierAufloesung();
+    }
+
+    public void AufloeungsWeiter()
+    {
+        aktuellerIndex = (aktuellerIndex + 1) % breiten.Length;
+        AktualisierAufloesung();
+    }
+
+    public void AufloeungsZurueck()
+    {
+        aktuellerIndex = (aktuellerIndex - 1 + breiten.Length) % breiten.Length;
+        AktualisierAufloesung();
+    }
+
+    private void AktualisierAufloesung()
+    {
+        Screen.SetResolution(breiten[aktuellerIndex], hoehen[aktuellerIndex], true);
+        if (text_Aufloesung != null)
+            text_Aufloesung.text = namen[aktuellerIndex];
+    }
 
     public void NeuesSpielStarten()
     {
@@ -28,7 +61,7 @@ public class TitleScreenManager : MonoBehaviour
     public void OptionenStarten()
     {
         Debug.Log($"{Pressed("Optionen")}");
-        // Hier könntest du die Optionen-UI aktivieren oder eine neue Szene laden
+        panel_Options.SetActive(!panel_Options.activeSelf); // Toggle-Logik für das Optionspanel
     }
 
     public void SpielBeenden()
