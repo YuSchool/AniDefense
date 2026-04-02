@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject panel_Oben;
     [SerializeField] private GameObject panel_Leben;
     [SerializeField] private GameObject panel_Rechts;
+    [SerializeField] private GameObject panel_Bauliste;
+    [SerializeField] private GameObject panel_Upgrade;
     [SerializeField] private GameObject panel_GameOver;
     [SerializeField] private GameObject panel_Victory;
 
@@ -138,6 +140,23 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("00_TitleScreen");
+    }
+
+    public void ZeigeBauliste()
+    {
+        // Logik zum Anzeigen der Bauliste implementieren
+        panel_Upgrade.SetActive(false);
+        panel_Bauliste.SetActive(true);
+        Debug.Log("[UIManager] Bauliste-Panel angezeigt.");
+
+    }
+
+    public void ZeigeUpgrade()
+    {
+        // Logik zum Anzeigen der Upgrade-Optionen implementieren
+        panel_Bauliste.SetActive(false);
+        panel_Upgrade.SetActive(true);
+        Debug.Log("[UIManager] Upgrade-Panel angezeigt.");
     }
 
     #endregion

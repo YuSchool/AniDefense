@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbabcf4db72edb4e8b99f76e7c34bf6, type: 3}
-  m_Name: BasicTower_Data
+  m_Name: SRZorro_Data
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  charakterName: BasicTower
-  seltenheit: 0
-  seltenheitsKlasse: 0
+  charakterName: Train Sollo
+  seltenheit: 1
+  seltenheitsKlasse: 1
   towerTyp: 0
   charakterSprite: {fileID: 0}
-  stufe: 1
-  upgradeTo: {fileID: 11400000, guid: b68225db3d9b7a54da0edf5844672648, type: 2}
-  schaden: 40
-  reichweite: 10
-  angriffsgeschwindigkeit: 1.3
-  zielPrioritaet: 0
-  goldKosten: 100
-  seelenKosten: 50
-  towerPrefab: {fileID: 555502377230277565, guid: 6019a527c87f5e14386aabfbfdcdc1bb, type: 3}
+  stufe: 2
+  upgradeTo: {fileID: 11400000, guid: ccdc58286c469254d856cc2924591405, type: 2}
+  schaden: 115
+  reichweite: 6.2
+  angriffsgeschwindigkeit: 4
+  zielPrioritaet: 2
+  goldKosten: 700
+  seelenKosten: 400
+  towerPrefab: {fileID: 69572330323886392, guid: 553e41a07ed06e441b948b873f30315e, type: 3}

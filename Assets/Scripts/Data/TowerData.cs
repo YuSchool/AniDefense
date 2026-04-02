@@ -28,4 +28,7 @@ public class  TowerData : ScriptableObject // Erstellen eines ScriptableObject, 
     [Header("Kosten")]
     public int goldKosten = 100; // Kosten in Gold, um den Turm zu bauen
     public int seelenKosten = 50; // Kosten in Seelen, um den Turm zu bauen
+
+    [Header("Prefab")]
+    public GameObject towerPrefab; // Referenz auf das Prefab des Turms, das im Spiel instanziiert wird
 }

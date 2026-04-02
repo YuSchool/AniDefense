@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbabcf4db72edb4e8b99f76e7c34bf6, type: 3}
-  m_Name: BasicTower_Data
+  m_Name: URZorro_Data
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  charakterName: BasicTower
-  seltenheit: 0
-  seltenheitsKlasse: 0
-  towerTyp: 0
+  charakterName: Fight Sollo
+  seltenheit: 2
+  seltenheitsKlasse: 2
+  towerTyp: 3
   charakterSprite: {fileID: 0}
-  stufe: 1
-  upgradeTo: {fileID: 11400000, guid: b68225db3d9b7a54da0edf5844672648, type: 2}
-  schaden: 40
-  reichweite: 10
-  angriffsgeschwindigkeit: 1.3
-  zielPrioritaet: 0
-  goldKosten: 100
-  seelenKosten: 50
-  towerPrefab: {fileID: 555502377230277565, guid: 6019a527c87f5e14386aabfbfdcdc1bb, type: 3}
+  stufe: 3
+  upgradeTo: {fileID: 11400000, guid: 2f280f88122a7ff4c94b755fc90cbebd, type: 2}
+  schaden: 292.5
+  reichweite: 6.4
+  angriffsgeschwindigkeit: 5
+  zielPrioritaet: 2
+  goldKosten: 900
+  seelenKosten: 600
+  towerPrefab: {fileID: 3879262527983287970, guid: b349d714d2d6bde4b9ab9578c5e9a3cc, type: 3}

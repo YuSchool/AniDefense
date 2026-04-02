@@ -22,8 +22,6 @@ public class TowerSelectionUI : MonoBehaviour
     [Header("Tower Datas")]
     [SerializeField] private TowerData[] alleTowerDatas;
 
-    [Header("Tower Prefabs")]
-    [SerializeField] private GameObject[] alleTowerPrefabs;
 
     #endregion
 
@@ -44,39 +42,35 @@ public class TowerSelectionUI : MonoBehaviour
         foreach (Transform kind in kartenContainer)
             Destroy(kind.gameObject);
 
-        for (int i = 0; i < alleTowerDatas.Length; i++)
+        foreach (TowerData data in alleTowerDatas)
         {
-            TowerData data = alleTowerDatas[i];
-            GameObject prefab = i < alleTowerPrefabs.Length ? alleTowerPrefabs[i] : null;
+            if (data.stufe != 1) continue;
+            if (data.towerPrefab == null)
+            {
+                Debug.LogWarning($"[TowerSelectionUI] Kein Prefab bei {data.charakterName} hinterlegt.");
+                continue;
+            }
 
             GameObject karteObj = Instantiate(towerKartePrefab, kartenContainer);
 
-            // Felder befüllen
             karteObj.transform.Find("Tower_Name").GetComponent<TextMeshProUGUI>().text
                 = data.charakterName;
-
             karteObj.transform.Find("Tower_Type").GetComponent<TextMeshProUGUI>().text
                 = data.towerTyp.ToString();
-
             karteObj.transform.Find("Tower_Kosten").GetComponent<TextMeshProUGUI>().text
                 = $"{data.goldKosten} Gold - {data.seelenKosten} Seelen";
-
             karteObj.transform.Find("Tower_Seltenheitsklasse").GetComponent<TextMeshProUGUI>().text
                 = data.seltenheitsKlasse.ToString();
-
             karteObj.transform.Find("Tower_Badge").GetComponent<TextMeshProUGUI>().text
                 = data.seltenheit.ToString();
 
-            // Sprite setzen falls vorhanden
             if (data.charakterSprite != null)
                 karteObj.transform.Find("Tower_Image").GetComponent<Image>().sprite
                     = data.charakterSprite;
 
-            // Klick-Listener
-            int index = i;
             karteObj.GetComponent<Button>().onClick.AddListener(() =>
             {
-                TowerPlacer.Instance.WaehleTower(data, prefab);
+                TowerPlacer.Instance.WaehleTower(data, data.towerPrefab);
                 Debug.Log($"[TowerSelectionUI] Tower ausgewählt: {data.charakterName}");
             });
         }

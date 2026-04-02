@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbabcf4db72edb4e8b99f76e7c34bf6, type: 3}
-  m_Name: BasicTower_Data
+  m_Name: SRSonGoku_Data
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  charakterName: BasicTower
-  seltenheit: 0
-  seltenheitsKlasse: 0
+  charakterName: Super Cracku
+  seltenheit: 1
+  seltenheitsKlasse: 1
   towerTyp: 0
   charakterSprite: {fileID: 0}
-  stufe: 1
-  upgradeTo: {fileID: 11400000, guid: b68225db3d9b7a54da0edf5844672648, type: 2}
-  schaden: 40
-  reichweite: 10
-  angriffsgeschwindigkeit: 1.3
+  stufe: 2
+  upgradeTo: {fileID: 11400000, guid: abe1e5b6d5a1c1a449c1b25850f899dc, type: 2}
+  schaden: 72
+  reichweite: 4.3
+  angriffsgeschwindigkeit: 4.1
   zielPrioritaet: 0
-  goldKosten: 100
-  seelenKosten: 50
-  towerPrefab: {fileID: 555502377230277565, guid: 6019a527c87f5e14386aabfbfdcdc1bb, type: 3}
+  goldKosten: 600
+  seelenKosten: 384
+  towerPrefab: {fileID: 8497774821298421117, guid: 4e391dc646377d544b80956197f6abae, type: 3}
