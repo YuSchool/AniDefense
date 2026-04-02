@@ -29,6 +29,10 @@ public class TowerPlacer : MonoBehaviour
     [Header("Tower")]
     [SerializeField] private Camera hauptKamera;
 
+    [Header("Upgrade UI")]
+    [SerializeField] private UpgradeUI upgradeUI;
+
+    private TowerBase ausgewaehlterPlatzierterTower = null;
     private TowerData ausgewaehlterTower = null;
     private GameObject ausgewaehltesPrefab = null;
 
@@ -41,14 +45,34 @@ public class TowerPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (ausgewaehlterTower == null) return;
         if (!Input.GetMouseButtonDown(0)) return;
-
-        // Prüfen ob der Klick auf einem UI-Element war
         if (EventSystem.current.IsPointerOverGameObject()) return;
-
+        // Prüfen ob ein platzierter Tower ausgewählt ist
+        
         Vector3 weltPosition = hauptKamera.ScreenToWorldPoint(Input.mousePosition);
         weltPosition.z = 0f;
+
+        // Prüfen ob ein platzierter Tower angeklickt wurde
+        RaycastHit2D hit = Physics2D.Raycast(weltPosition, Vector2.zero);
+        if (hit.collider != null)
+        {
+            TowerBase tower = hit.collider.GetComponent<TowerBase>();
+            if (tower != null)
+            {
+                // Tower auswählen und Upgrade-UI anzeigen
+                WaehlePlatzierterTower(tower);
+                return; // Früher Rückkehr, damit kein neuer Tower platziert wird
+            }
+        }
+
+        // Wenn nichts getroffen wurde durch den Raycast, Auswahl aufheben
+        if (upgradeUI != null)
+            upgradeUI.SchliesseUpgrade();
+
+        // Sonst normalen Platzierungsprozess fortsetzen
+
+        if (ausgewaehlterTower == null) return;
+        
 
         Vector3Int tilePosition = baufelderTilemap.WorldToCell(weltPosition);
 
@@ -110,6 +134,19 @@ public class TowerPlacer : MonoBehaviour
         Debug.Log($"[TowerPlacer] Tower gebaut bei {tilePosition}. " +
                   $"Gold ausgegeben: {ausgewaehlterTower.goldKosten}");
     }
+
+    private void WaehlePlatzierterTower(TowerBase tower)
+    {
+        ausgewaehlterPlatzierterTower = tower;
+        AuswahlAufheben(); // Deselektiere den Tower, damit kein neuer gebaut wird
+        if (upgradeUI != null)
+            upgradeUI.ZeigeUpgrade(tower);
+
+        Debug.Log($"[TowerPlacer] Platzierter Tower ausgewählt: {tower.Data.charakterName}");
+
+
+    }   
+    
 
     #endregion
 }
