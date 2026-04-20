@@ -2,7 +2,8 @@
 // Zweck: Verwaltet das Speichern und Laden des Spielstands als JSON-Datei.
 // Sinn: Persistenter Spielfortschritt – freigeschaltete Schwierigkeiten, abgeschlossene
 //       Level und später Items/Charaktere bleiben nach Spielneustart erhalten.
-// Wird verwendet von: DungeonScreenManager (lesen), GameManager (schreiben bei Victory)
+// Wird verwendet von: DungeonScreenManager (lesen), GameManager (schreiben bei Victory),
+//         GameTimeManager (lesen und schreiben der Gesamtspielzeit), TitleScreenManager (Debug: Spielstand zurücksetzen)
 
 using UnityEngine;
 using System.IO;
@@ -125,6 +126,16 @@ public class SaveManager : MonoBehaviour
 
     #endregion
 
+    #region Spielzeit
+
+    public void SpielzeitSpeichern(float sekunden)
+    {
+        Daten.gesamtSpielzeit = sekunden;
+        Speichern();
+    }
+
+    #endregion
+
     #region Debug
 
     [ContextMenu("Spielstand zurücksetzen")]
@@ -147,6 +158,9 @@ public class Spielstand
     public bool level00_Normal_Abgeschlossen = false;
     public bool level00_Schwer_Freigeschaltet = false;
     public bool level00_Schwer_Abgeschlossen = false;
+
+    // Spielzeit in Sekunden
+    public float gesamtSpielzeit = 0f;
 
     // Später erweiterbar:
     // public int gold;
