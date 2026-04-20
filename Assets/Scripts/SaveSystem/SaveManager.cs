@@ -85,6 +85,7 @@ public class SaveManager : MonoBehaviour
                 {
                     Daten.level00_Leicht_Abgeschlossen = true;
                     Daten.level00_Normal_Freigeschaltet = true;
+                    Daten.level01_Leicht_Freigeschaltet = true;
                     geaendert = true;
                 }
                 else if (schwierigkeit == Schwierigkeit.Normal && !Daten.level00_Normal_Abgeschlossen)
@@ -96,12 +97,50 @@ public class SaveManager : MonoBehaviour
                 else if (schwierigkeit == Schwierigkeit.Schwer && !Daten.level00_Schwer_Abgeschlossen)
                 {
                     Daten.level00_Schwer_Abgeschlossen = true;
+                    Daten.level02_Leicht_Freigeschaltet = true;
                     geaendert = true;
                 }
                 break;
 
-                // Später ergänzen:
-                // case "Level_01": ...
+            case "Level_01":
+                if (schwierigkeit == Schwierigkeit.Leicht && !Daten.level01_Leicht_Abgeschlossen)
+                {
+                    Daten.level01_Leicht_Abgeschlossen = true;
+                    Daten.level01_Normal_Freigeschaltet = true;
+                    geaendert = true;
+                }
+                else if (schwierigkeit == Schwierigkeit.Normal && !Daten.level01_Normal_Abgeschlossen)
+                {
+                    Daten.level01_Normal_Abgeschlossen = true;
+                    Daten.level01_Schwer_Freigeschaltet = true;
+                    geaendert = true;
+                }
+                else if (schwierigkeit == Schwierigkeit.Schwer && !Daten.level01_Schwer_Abgeschlossen)
+                {
+                    Daten.level01_Schwer_Abgeschlossen = true;
+                    geaendert = true;
+                }
+                break;
+
+            case "Level_02":
+                if (schwierigkeit == Schwierigkeit.Leicht && !Daten.level02_Leicht_Abgeschlossen)
+                {
+                    Daten.level02_Leicht_Abgeschlossen = true;
+                    Daten.level02_Normal_Freigeschaltet = true;
+                    geaendert = true;
+                }
+                else if (schwierigkeit == Schwierigkeit.Normal && !Daten.level02_Normal_Abgeschlossen)
+                {
+                    Daten.level02_Normal_Abgeschlossen = true;
+                    Daten.level02_Schwer_Freigeschaltet = true;
+                    geaendert = true;
+                }
+                else if (schwierigkeit == Schwierigkeit.Schwer && !Daten.level02_Schwer_Abgeschlossen)
+                {
+                    Daten.level02_Schwer_Abgeschlossen = true;
+                    geaendert = true;
+                }
+                break;
         }
 
         if (geaendert)
@@ -120,6 +159,19 @@ public class SaveManager : MonoBehaviour
                 if (schwierigkeit == Schwierigkeit.Normal) return Daten.level00_Normal_Freigeschaltet;
                 if (schwierigkeit == Schwierigkeit.Schwer) return Daten.level00_Schwer_Freigeschaltet;
                 break;
+
+            case "Level_01":
+                if (schwierigkeit == Schwierigkeit.Leicht) return Daten.level01_Leicht_Freigeschaltet;
+                if (schwierigkeit == Schwierigkeit.Normal) return Daten.level01_Normal_Freigeschaltet;
+                if (schwierigkeit == Schwierigkeit.Schwer) return Daten.level01_Schwer_Freigeschaltet;
+                break;
+
+            case "Level_02":
+                if (schwierigkeit == Schwierigkeit.Leicht) return Daten.level02_Leicht_Freigeschaltet;
+                if (schwierigkeit == Schwierigkeit.Normal) return Daten.level02_Normal_Freigeschaltet;
+                if (schwierigkeit == Schwierigkeit.Schwer) return Daten.level02_Schwer_Freigeschaltet;
+                break;
+
         }
         return false;
     }
@@ -158,6 +210,23 @@ public class Spielstand
     public bool level00_Normal_Abgeschlossen = false;
     public bool level00_Schwer_Freigeschaltet = false;
     public bool level00_Schwer_Abgeschlossen = false;
+
+    // Level_01
+    public bool level01_Leicht_Freigeschaltet = false;
+    public bool level01_Leicht_Abgeschlossen = false;
+    public bool level01_Normal_Freigeschaltet = false;
+    public bool level01_Normal_Abgeschlossen = false;
+    public bool level01_Schwer_Freigeschaltet = false;
+    public bool level01_Schwer_Abgeschlossen = false;
+    
+    // Level_02
+    public bool level02_Leicht_Freigeschaltet = false;
+    public bool level02_Leicht_Abgeschlossen = false;
+    public bool level02_Normal_Freigeschaltet = false;
+    public bool level02_Normal_Abgeschlossen = false;
+    public bool level02_Schwer_Freigeschaltet = false;
+    public bool level02_Schwer_Abgeschlossen = false;
+
 
     // Spielzeit in Sekunden
     public float gesamtSpielzeit = 0f;
