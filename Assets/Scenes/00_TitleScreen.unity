@@ -3603,13 +3603,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Wie spiele ich AniDefense?\r\n\r\n1. W\xE4hle im Dungeon-Screen ein Level
-    und eine Schwierigkeit.\r\n2. Platziere T\xFCrme auf den markierten Baufeldern
-    (helle Felder).\r\n3. Starte die Wave mit dem Button unten rechts.\r\n4. Verhindere
-    dass Gegner deine Basis erreichen.\r\n5. \xDCberlebe alle 5 Waves um zu gewinnen.\r\n\r\nRessourcen:\r\n-
-    Gold \u2013 verdient durch besiegte Gegner, zum Bauen\r\n- Seelen \u2013 zum
-    Upgraden von T\xFCrmen\r\n- Aura \u2013 spezielle Ressource f\xFCr starke Aktionen\r\n-
-    Leben \u2013 verlierst du alle 3, ist das Spiel vorbei"
+  m_text: "Wie spiele ich AniDefense? W\xE4hle im Dungeon-Screen ein Level und eine
+    Schwierigkeit aus. Platziere T\xFCrme auf den markierten Baufeldern auf der Karte.
+    Starte die Wave mit dem Button unten rechts und verhindere dass Gegner deine
+    Basis erreichen. \xDCberlebe alle 5 Waves um zu gewinnen. Ressourcen: Gold verdienst
+    du durch besiegte Gegner und verwendest es zum Bauen von T\xFCrmen. Seelen werden
+    zum Upgraden von T\xFCrmen ben\xF6tigt. Aura ist eine spezielle Ressource f\xFCr
+    starke Aktionen. Du hast 3 Leben, verlierst du alle ist das Spiel vorbei."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3636,15 +3636,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -4842,12 +4842,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Steuerung & Tipps\r\n\r\nTurm platzieren:\r\nKlicke eine Karte in der
-    Bauliste \u2192 klicke ein Baufeld\r\n\r\nTurm upgraden:\r\nKlicke einen platzierten
-    Turm \u2192 Upgrade-Panel \xF6ffnet sich\r\n\r\nPause:\r\nEinstellungs-Button
-    oben rechts im HUD\r\n\r\nSchwierigkeiten:\r\n- Leicht    \u2013 zum Einstieg,
-    wenige Gegner\r\n- Normal  \u2013 mehr Gegner, h\xF6here HP\r\n- Schwer  \u2013
-    volle Herausforderung\r\n\r\nTipp: Upgrade deine T\xFCrme zwischen den Waves!"
+  m_text: "Steuerung und Tipps: Um einen Turm zu bauen klicke eine Karte in der Bauliste
+    an und dann ein freies Baufeld auf der Karte. Um einen Turm zu upgraden klicke
+    einen bereits platzierten Turm an und best\xE4tige das Upgrade im Panel. Das
+    Spiel kannst du \xFCber den Einstellungs-Button oben rechts im HUD pausieren.
+    Die Schwierigkeiten Leicht, Normal und Schwer m\xFCssen der Reihe nach freigeschaltet
+    werden indem du die vorherige Schwierigkeit abschlie\xDFt. Tipp: Upgrade deine
+    T\xFCrme zwischen den Waves um st\xE4rker zu werden."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4874,15 +4875,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
