@@ -115,11 +115,7 @@ public class UIManager : MonoBehaviour
     public void WeiterZumMenue()
     {
         Time.timeScale = 1f;
-        // Später: Szene zum Hauptmenü laden
-        // Für jetzt — Szene neu starten
-        UnityEngine.SceneManagement.SceneManager
-            .LoadScene(UnityEngine.SceneManagement.SceneManager
-            .GetActiveScene().name);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("00_TitleScreen");
     }
 
     public void Pausieren()
