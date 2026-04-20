@@ -1,19 +1,29 @@
 // TitleScreenManager.cs
-// Zweck: Ste
-// Sinn: Der TitleScreenManager ist verantwortlich für die Verwaltung und Steuerung des Titelbildschirms des Spiels. 
-// 
-
+// Zweck: Steuert den TitleScreen — Panel-Navigation, Auflösung, Spiel beenden.
+// Sinn: Zentralisiert alle Button-Aktionen des TitleScreens. Jeder Nav-Button
+//       blendet das zugehörige Panel ein und alle anderen aus.
+// Wird verwendet von: Canvas im 00_TitleScreen
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class TitleScreenManager : MonoBehaviour
 {
-    [SerializeField] private string spielSzeneName;
+    #region Referenzen
+
+    [Header("Panels")]
+    [SerializeField] private GameObject panel_Home;
+    [SerializeField] private GameObject panel_User;
+    [SerializeField] private GameObject panel_Dungeons;
+    [SerializeField] private GameObject panel_Items;
+    [SerializeField] private GameObject panel_Summon;
     [SerializeField] private GameObject panel_Options;
 
-    [Header("Auflösungen")]
+    #endregion
+
+    #region Auflösung
+
+    [Header("Auflösung")]
     [SerializeField] private TMPro.TextMeshProUGUI text_Aufloesung;
 
     private int[] breiten = { 1280, 1920, 2560, 3440 };
@@ -21,10 +31,43 @@ public class TitleScreenManager : MonoBehaviour
     private string[] namen = { "1280x720", "1920x1080", "2560x1440", "3440x1440" };
     private int aktuellerIndex = 1;
 
+    #endregion
+
+    #region Unity Lifecycle
+
     private void Start()
     {
         AktualisierAufloesung();
+        ZeigePanel(panel_Home);
     }
+
+    #endregion
+
+    #region Panel Navigation
+
+    public void ZeigeHome() => ZeigePanel(panel_Home);
+    public void ZeigeUser() => ZeigePanel(panel_User);
+    public void ZeigeDungeons() => ZeigePanel(panel_Dungeons);
+    public void ZeigeItems() => ZeigePanel(panel_Items);
+    public void ZeigeSummon() => ZeigePanel(panel_Summon);
+    public void ZeigeOptionen() => ZeigePanel(panel_Options);
+
+    private void ZeigePanel(GameObject zielPanel)
+    {
+        panel_Home.SetActive(false);
+        panel_User.SetActive(false);
+        panel_Dungeons.SetActive(false);
+        panel_Items.SetActive(false);
+        panel_Summon.SetActive(false);
+        panel_Options.SetActive(false);
+
+        if (zielPanel != null)
+            zielPanel.SetActive(true);
+    }
+
+    #endregion
+
+    #region Auflösung
 
     public void AufloeungsWeiter()
     {
@@ -45,37 +88,19 @@ public class TitleScreenManager : MonoBehaviour
             text_Aufloesung.text = namen[aktuellerIndex];
     }
 
-    public void NeuesSpielStarten()
-    {
-        Debug.Log($"{Pressed("Neues Spiel")}");
-    
-        if (string.IsNullOrEmpty(spielSzeneName))
-        {
-            Debug.LogError("[TitleScreenManager] Kein Szenenname für das Spiel festgelegt!");
-            return;
-        }
+    #endregion
 
-        SceneManager.LoadScene(spielSzeneName);
-    }
-
-    public void OptionenStarten()
-    {
-        Debug.Log($"{Pressed("Optionen")}");
-        panel_Options.SetActive(!panel_Options.activeSelf); // Toggle-Logik für das Optionspanel
-    }
+    #region Spiel
 
     public void SpielBeenden()
     {
-        Debug.Log($"{Pressed("Spiel Beenden")}");
-
+        Debug.Log("[TitleScreenManager] Spiel beenden.");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
-
 #endif
     }
 
-    private string Pressed(string buttonName) => $"Button '{buttonName}' gedrückt";
-
+    #endregion
 }

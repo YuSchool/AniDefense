@@ -12,17 +12,9 @@ public class GameManager : MonoBehaviour
 
 
     #region SPIELZUSTAND
-    public enum GameState
-    {
-        Idle,        // Spiel wartet auf Start
-        Running,     // Wave läuft
-        Paused,      // Pausiert
-        WaveOver,    // Wave beendet, kurze Pause bis nächste
-        GameOver,    // Alle Leben verloren
-        Victory      // Alle Waves geschafft
-    }
-
+    
     public GameState AktuellerZustand { get; private set; } = GameState.Idle;
+    
     #endregion
 
     #region LEVELINFO
@@ -78,6 +70,15 @@ public class GameManager : MonoBehaviour
         {
             SetzeZustand(GameState.Victory);
             OnVictory?.Invoke();
+
+            // Fortschritt speichern
+            if (SaveManager.Instance != null)
+            {
+                SaveManager.Instance.LevelAbgeschlossen(
+                    SaveManager.AktuelleMap,
+                    SaveManager.AktuelleSchwierigkeit);
+            }
+
             Debug.Log("[GameManager] Alle Waves geschafft — Victory!");
         }
         else

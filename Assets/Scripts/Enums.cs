@@ -44,4 +44,20 @@ public enum TargetPriority
     Strongest, // Greift den stärksten Feind an
     Weakest // Greift den schwächsten Feind an
 }
+public enum GameState
+{
+    Idle,        // Spiel wartet auf Start
+    Running,     // Wave läuft
+    Paused,      // Pausiert
+    WaveOver,    // Wave beendet, kurze Pause bis nächste
+    GameOver,    // Alle Leben verloren
+    Victory      // Alle Waves geschafft
+}
+
+public enum Schwierigkeit // Schwierigkeitsgrad des Levels
+{
+    Leicht,
+    Normal,
+    Schwer
+}
 
