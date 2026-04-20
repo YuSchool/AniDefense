@@ -16,7 +16,7 @@ public class OptionScreenManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text_ReiterName;
     [SerializeField] private GameObject[] subPanels;
 
-    private string[] reiterNamen = { "Auflösung", "Musik", "Steuerung", "Credits" };
+    private string[] reiterNamen = { "Auflösung", "Musik", "Steuerung", "Tutorial", "Credits" };
     private int aktuellerIndex = 0;
 
     public void NavigiereRechts()
