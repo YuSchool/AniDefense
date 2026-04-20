@@ -29,6 +29,8 @@ public class TowerUpgrader : MonoBehaviour
     {
         if (towerBase.Data.upgradeTo == null) return false; // Kein Upgrade verfügbar
         if (ResourceManager.Instance.Seelen < towerBase.Data.seelenKosten) return false; // Nicht genug Ressourcen
+        if (ResourceManager.Instance.Gold < towerBase.Data.goldKosten) return false;
+        if (ResourceManager.Instance.Aura < towerBase.Data.auraKosten) return false;
         return true;
     }
 
@@ -37,6 +39,8 @@ public class TowerUpgrader : MonoBehaviour
         if (!KannUpgraden()) return; // Sicherheitshalber nochmal prüfen
 
         ResourceManager.Instance.SpendSeelen(towerBase.Data.seelenKosten); // Kosten abziehen
+        ResourceManager.Instance.SpendGold(towerBase.Data.goldKosten); 
+        ResourceManager.Instance.SpendAura(towerBase.Data.auraKosten);
 
         towerBase.SetzeData(towerBase.Data.upgradeTo); // Upgrade durchführen
 

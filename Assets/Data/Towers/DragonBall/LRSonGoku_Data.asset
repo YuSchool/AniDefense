@@ -25,5 +25,5 @@ MonoBehaviour:
   zielPrioritaet: 0
   goldKosten: 800
   seelenKosten: 800
-  auraKosten: 0
+  auraKosten: 150
   towerPrefab: {fileID: 4662698302566516453, guid: a0b91c6f7c8752b429d03eba4db427af, type: 3}
