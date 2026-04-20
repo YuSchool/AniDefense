@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbabcf4db72edb4e8b99f76e7c34bf6, type: 3}
-  m_Name: LRSonGoku_Data
+  m_Name: RPiccolo
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  charakterName: Master Cracku
-  seltenheit: 3
-  seltenheitsKlasse: 3
-  towerTyp: 0
+  charakterName: Trollo
+  seltenheit: 0
+  seltenheitsKlasse: 0
+  towerTyp: 2
   charakterSprite: {fileID: 0}
-  stufe: 4
-  upgradeTo: {fileID: 0}
-  schaden: 224
-  reichweite: 10
-  angriffsgeschwindigkeit: 10
+  stufe: 1
+  upgradeTo: {fileID: 11400000, guid: b2756c8d2450dff41ace708ff70cbc3e, type: 2}
+  schaden: 10
+  reichweite: 3
+  angriffsgeschwindigkeit: 1
   zielPrioritaet: 0
-  goldKosten: 800
-  seelenKosten: 800
+  goldKosten: 100
+  seelenKosten: 50
   auraKosten: 0
-  towerPrefab: {fileID: 4662698302566516453, guid: a0b91c6f7c8752b429d03eba4db427af, type: 3}
+  towerPrefab: {fileID: 0}
