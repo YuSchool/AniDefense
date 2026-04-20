@@ -30,7 +30,9 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        AktuelleHP = data.leben;
+        // Nur setzen wenn SetzeHP() noch nicht aufgerufen wurde
+        if (AktuelleHP == 0f)
+            AktuelleHP = data.leben;
     }
 
     #endregion
@@ -59,6 +61,12 @@ public abstract class EnemyBase : MonoBehaviour
         if (IstTot) return; // Wenn der Gegner bereits tot ist, wird keine weitere Aktion ausgeführt.
         IstTot = true; // Gegner als tot markieren, um weitere Aktionen zu verhindern.
         OnEnemyGestorben?.Invoke(this); // Event auslösen, um andere Systeme zu informieren, dass dieser Gegner gestorben ist
+    }
+
+    // Funktionen für LevelSystem
+    public void SetzeHP(float multiplikator)
+    {
+        AktuelleHP = data.leben * multiplikator;
     }
 
     #endregion

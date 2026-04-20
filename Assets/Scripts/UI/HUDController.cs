@@ -68,7 +68,7 @@ public class HUDController : MonoBehaviour
 
     private void AktualisierAura(float wert)
     {
-        text_Aura.text = $"Aura: {wert}";
+        text_Aura.text = $"Aura: {wert:F0}";
     }
 
     private void AktualisierLeben(int wert)

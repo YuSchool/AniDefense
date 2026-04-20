@@ -24,20 +24,21 @@ public class DropHandler : MonoBehaviour
     #region DROP LOGIK
     private void OnGegnerGestorben(EnemyBase gegner)
     {
-        // Überprüfen, ob der gestorbene Gegner dieses GameObject ist, um sicherzustellen, dass die Belohnungen nur für den richtigen Gegner vergeben werden.
-        // Wenn der gestorbene Gegner dieses GameObject ist, wird die Methode verlassen, da wir keine Belohnungen vergeben möchten.
-        if (gegner.gameObject != this.gameObject) return; 
+        if (gegner.gameObject != this.gameObject) return;
 
-        EnemyData data = gegner.Data; // Zugriff auf die EnemyData des gestorbenen Gegners, um die Belohnungen zu erhalten.
-        ResourceManager.Instance.AddGold(data.goldBelohnung); // Vergeben der Goldbelohnung an den Spieler, indem die AddGold-Methode des ResourceManager aufgerufen wird.
-        ResourceManager.Instance.AddSeelen(data.seelenBelohnung); // Vergeben der Seelenbelohnung an den Spieler, indem die AddSeelen-Methode des ResourceManager aufgerufen wird.
-        ResourceManager.Instance.AddAura(data.auraBelohnung); // Vergeben der Aurabelohnung an den Spieler, indem die AddAura-Methode des ResourceManager aufgerufen wird.
+        EnemyData data = gegner.Data;
+
+        float mult = LevelDifficultyManager.Instance != null
+            ? LevelDifficultyManager.Instance.Belohnung_Multiplikator : 1f;
+                
+        ResourceManager.Instance.AddGold(Mathf.RoundToInt(data.goldBelohnung * mult));
+        ResourceManager.Instance.AddSeelen(Mathf.RoundToInt(data.seelenBelohnung * mult));
+        ResourceManager.Instance.AddAura(data.auraBelohnung * mult);
 
         Debug.Log($"[DropHandler] Drops vergeben: " +
-                  $"{data.goldBelohnung} Gold, " +
-                  $"{data.seelenBelohnung} Seelen, " +
-                  $"{data.auraBelohnung} Aura.");
-
+                  $"{Mathf.RoundToInt(data.goldBelohnung * mult)} Gold, " +
+                  $"{Mathf.RoundToInt(data.seelenBelohnung * mult)} Seelen, " +
+                  $"{data.auraBelohnung * mult} Aura.");
     }
     #endregion
 

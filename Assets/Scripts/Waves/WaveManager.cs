@@ -92,18 +92,21 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator SpawneEintrag(WaveEntry eintrag, SpawnPoint[] alleSpawnPoints)
     {
+        float abstand = eintrag.spawnAbstand;
+        if (LevelDifficultyManager.Instance != null)
+            abstand *= LevelDifficultyManager.Instance.SpawnAbstand_Multiplikator;
+
         for (int i = 0; i < eintrag.anzahl; i++)
         {
             SpawnPoint spawnPoint = alleSpawnPoints[Random.Range(0, alleSpawnPoints.Length)];
             SpawneGegner(eintrag, spawnPoint);
-            yield return new WaitForSeconds(eintrag.spawnAbstand);
+            yield return new WaitForSeconds(abstand);
         }
     }
 
     private void SpawneGegner(WaveEntry eintrag, SpawnPoint spawnPoint)
     {
         GameObject prefab = HolePrefabFuerTyp(eintrag.enemyData);
-
         if (prefab == null)
         {
             Debug.LogWarning($"[WaveManager] Kein Prefab für {eintrag.enemyData.enemyName} gefunden.");
@@ -112,12 +115,20 @@ public class WaveManager : MonoBehaviour
 
         GameObject gegnerObjekt = Instantiate(
             prefab,
-            spawnPoint.Wegpunkte[0].position, // Gegner wird am ersten Wegpunkt des SpawnPoints gespawnt
+            spawnPoint.Wegpunkte[0].position,
             Quaternion.identity
         );
 
+        float speed = eintrag.enemyData.geschwindigkeit;
+        if (LevelDifficultyManager.Instance != null)
+            speed *= LevelDifficultyManager.Instance.Geschwindigkeit_Multiplikator;
+
         PathFollower pf = gegnerObjekt.GetComponent<PathFollower>();
-        pf.Initialisiere(spawnPoint.Wegpunkte, eintrag.enemyData.geschwindigkeit);
+        pf.Initialisiere(spawnPoint.Wegpunkte, speed);
+
+        EnemyBase eb = gegnerObjekt.GetComponent<EnemyBase>();
+        if (eb != null && LevelDifficultyManager.Instance != null)
+            eb.SetzeHP(LevelDifficultyManager.Instance.HP_Multiplikator);
     }
 
     private GameObject HolePrefabFuerTyp(EnemyData data)
