@@ -59,7 +59,7 @@ public class UpgradeUI : MonoBehaviour
             text_StufeNeu.text = $"Stufe {neu.stufe}";
             text_GoldKosten.text = $"{neu.goldKosten} Gold";
             text_SeelenKosten.text = $"{neu.seelenKosten} Seelen";
-            text_AuraKosten.text = $"{neu.goldKosten / 10} Aura";
+            text_AuraKosten.text = $"{neu.auraKosten} Aura";
         }
         else
         {
