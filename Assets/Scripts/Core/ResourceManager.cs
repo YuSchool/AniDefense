@@ -115,10 +115,14 @@ public class ResourceManager : MonoBehaviour
     {
         SetzeLeben(Leben - 1);
         Debug.Log($"[ResourceManager] Leben verloren. Verbleibend: {Leben}");
+        // Ton bei Lebenverlust abspielen
+        AudioManager.Instance?.SpieleSFX_LebenVerlust();
 
         if (Leben <= 0)
         {
             GameManager.Instance.TriggerGameOver();
+            // Ton für Game Over abspielen
+            AudioManager.Instance?.SpieleSFX_GameOver();
         }
     }
     #endregion

@@ -35,6 +35,10 @@ public class DropHandler : MonoBehaviour
         ResourceManager.Instance.AddSeelen(Mathf.RoundToInt(data.seelenBelohnung * mult));
         ResourceManager.Instance.AddAura(data.auraBelohnung * mult);
 
+        // Ton abspielen, um den Erhalt der Belohnung zu signalisieren
+        AudioManager.Instance?.SpieleSFX_Belohnung();
+
+        // Debug-Ausgabe, um die vergebenen Belohnungen anzuzeigen
         Debug.Log($"[DropHandler] Drops vergeben: " +
                   $"{Mathf.RoundToInt(data.goldBelohnung * mult)} Gold, " +
                   $"{Mathf.RoundToInt(data.seelenBelohnung * mult)} Seelen, " +

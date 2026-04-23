@@ -79,6 +79,51 @@ public class OptionScreenManager : MonoBehaviour
     [SerializeField] private Slider slider_SFXLautstaerke;
     [SerializeField] private Toggle toggle_StilleModus;
 
+    public void OnMusikToggleGeaendert(bool aktiv)
+    {
+        AudioManager.Instance?.SetzeMusikLautstaerke(aktiv ? slider_MusicLautstaerke.value : 0f);
+        Debug.Log($"[OptionScreenManager] Musik: {(aktiv ? "AN" : "AUS")}");
+    }
+
+    public void OnSFXToggleGeaendert(bool aktiv)
+    {
+        AudioManager.Instance?.SetzeSFXLautstaerke(aktiv ? slider_SFXLautstaerke.value : 0f);
+        Debug.Log($"[OptionScreenManager] SFX: {(aktiv ? "AN" : "AUS")}");
+    }
+
+    public void OnMusikLautstaerkeGeaendert(float wert)
+    {
+        AudioManager.Instance?.SetzeMusikLautstaerke(wert);
+        if (toggle_Musik != null && wert == 0f)
+            toggle_Musik.isOn = false;
+    }
+
+    public void OnSFXLautstaerkeGeaendert(float wert)
+    {
+        AudioManager.Instance?.SetzeSFXLautstaerke(wert);
+        if (toggle_SFX != null && wert == 0f)
+            toggle_SFX.isOn = false;
+    }
+
+    public void OnStilleModusGeaendert(bool aktiv)
+    {
+        if (aktiv)
+        {
+            AudioManager.Instance?.SetzeMusikLautstaerke(0f);
+            AudioManager.Instance?.SetzeSFXLautstaerke(0f);
+            if (toggle_Musik != null) toggle_Musik.isOn = false;
+            if (toggle_SFX != null) toggle_SFX.isOn = false;
+        }
+        else
+        {
+            AudioManager.Instance?.SetzeMusikLautstaerke(slider_MusicLautstaerke.value);
+            AudioManager.Instance?.SetzeSFXLautstaerke(slider_SFXLautstaerke.value);
+            if (toggle_Musik != null) toggle_Musik.isOn = true;
+            if (toggle_SFX != null) toggle_SFX.isOn = true;
+        }
+        Debug.Log($"[OptionScreenManager] Stille-Modus: {(aktiv ? "AN" : "AUS")}");
+    }
+
     #endregion
 
     #region Steuerung
@@ -111,6 +156,18 @@ public class OptionScreenManager : MonoBehaviour
         // Ersten Reiter anzeigen
         aktuellerIndex = 0;
         AktualisiereReiter();
+
+
+        // Startwerte für Musik-Optionen setzen
+        slider_MusicLautstaerke.value = 1f;
+        slider_SFXLautstaerke.value = 1f;
+
+        // Musik-Optionen initialisieren
+        slider_MusicLautstaerke.onValueChanged.AddListener(OnMusikLautstaerkeGeaendert);
+        slider_SFXLautstaerke.onValueChanged.AddListener(OnSFXLautstaerkeGeaendert);
+        toggle_Musik.onValueChanged.AddListener(OnMusikToggleGeaendert);
+        toggle_SFX.onValueChanged.AddListener(OnSFXToggleGeaendert);
+        toggle_StilleModus.onValueChanged.AddListener(OnStilleModusGeaendert);
     }
 
     #endregion

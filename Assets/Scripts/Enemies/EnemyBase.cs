@@ -79,6 +79,9 @@ public abstract class EnemyBase : MonoBehaviour
 
         //Debug.Log($"[{data.enemyName}] gestorben.");
         OnEnemyGestorben?.Invoke(this); // Event auslösen, um andere Systeme zu informieren, dass dieser Gegner gestorben ist
+        // Ton abspielen bevor das Objekt zerstört wird
+        AudioManager.Instance?.SpieleSFX_GegnerTod();
+
         Destroy(gameObject);
     }
 

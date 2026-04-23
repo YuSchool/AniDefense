@@ -71,6 +71,8 @@ public class UIManager : MonoBehaviour
 
     private void ZeigeGameOver()
     {
+        AudioManager.Instance?.StoppeMusik();
+        AudioManager.Instance?.SpieleSFX_GameOver();
         panel_Oben.SetActive(false);
         panel_Leben.SetActive(false);
         panel_Rechts.SetActive(false);
@@ -81,6 +83,8 @@ public class UIManager : MonoBehaviour
 
     private void ZeigeVictory()
     {
+        AudioManager.Instance?.StoppeMusik();
+        AudioManager.Instance?.SpieleSFX_Victory();
         panel_Oben.SetActive(false);
         panel_Leben.SetActive(false);
         panel_Rechts.SetActive(false);

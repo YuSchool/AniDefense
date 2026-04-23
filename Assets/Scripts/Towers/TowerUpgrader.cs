@@ -43,8 +43,10 @@ public class TowerUpgrader : MonoBehaviour
         ResourceManager.Instance.SpendAura(towerBase.Data.auraKosten);
 
         towerBase.SetzeData(towerBase.Data.upgradeTo); // Upgrade durchführen
-
         Debug.Log($"[TowerUpgrader] Upgrade auf Stufe {towerBase.Data.stufe}.");
+
+        // Ton abspielen
+        AudioManager.Instance?.SpieleSFX_CharakterUpgrade();
     }
 
     #endregion

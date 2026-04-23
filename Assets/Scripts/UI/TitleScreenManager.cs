@@ -45,12 +45,12 @@ public class TitleScreenManager : MonoBehaviour
 
     #region Panel Navigation
 
-    public void ZeigeHome() => ZeigePanel(panel_Home);
-    public void ZeigeUser() => ZeigePanel(panel_User);
-    public void ZeigeDungeons() => ZeigePanel(panel_Dungeons);
-    public void ZeigeItems() => ZeigePanel(panel_Items);
-    public void ZeigeSummon() => ZeigePanel(panel_Summon);
-    public void ZeigeOptionen() => ZeigePanel(panel_Options);
+    public void ZeigeHome() { ZeigePanel(panel_Home); AudioManager.Instance?.ZeigeTitleScreenMusik(); }
+    public void ZeigeUser() { ZeigePanel(panel_User); AudioManager.Instance?.ZeigeTitleScreenMusik(); }
+    public void ZeigeDungeons() { ZeigePanel(panel_Dungeons); AudioManager.Instance?.ZeigeDungeonMusik(); }
+    public void ZeigeItems() { ZeigePanel(panel_Items); AudioManager.Instance?.ZeigeTitleScreenMusik(); }
+    public void ZeigeSummon() { ZeigePanel(panel_Summon); AudioManager.Instance?.ZeigeTitleScreenMusik(); }
+    public void ZeigeOptionen() { ZeigePanel(panel_Options); AudioManager.Instance?.ZeigeTitleScreenMusik(); }
 
     private void ZeigePanel(GameObject zielPanel)
     {

@@ -63,6 +63,11 @@ public class LevelKarteUI : MonoBehaviour
         {
             button.onClick.AddListener(OnKarteGeklickt);
         }
+        if (!freigeschaltet)
+        {
+            button.onClick.AddListener(() => AudioManager.Instance?.SpieleSFX_LevelGesperrt());
+        }
+
     }
 
     #endregion
@@ -75,6 +80,9 @@ public class LevelKarteUI : MonoBehaviour
         SaveManager.AktuelleSchwierigkeit = _schwierigkeit;
 
         Debug.Log($"[LevelKarteUI] Starte {_mapName} auf {_schwierigkeit}");
+
+        // Ton abspielen wenn Levelkarte geklickt wird
+        AudioManager.Instance?.SpieleSFX_LevelAuswahl();
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(_mapName);
     }

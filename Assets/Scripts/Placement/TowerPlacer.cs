@@ -103,6 +103,7 @@ public class TowerPlacer : MonoBehaviour
 
     public void WaehleTower(TowerData data, GameObject prefab)
     {
+        AudioManager.Instance?.SpieleSFX_CharakterAuswahl();
         ausgewaehlterTower = data;
         ausgewaehltesPrefab = prefab;
         Debug.Log($"[TowerPlacer] Tower ausgewählt: {data.charakterName}");
@@ -133,6 +134,9 @@ public class TowerPlacer : MonoBehaviour
 
         Debug.Log($"[TowerPlacer] Tower gebaut bei {tilePosition}. " +
                   $"Gold ausgegeben: {ausgewaehlterTower.goldKosten}");
+
+        // Nach dem Bau Ton abspielen
+        AudioManager.Instance?.SpieleSFX_CharakterSetzen();
     }
 
     private void WaehlePlatzierterTower(TowerBase tower)
